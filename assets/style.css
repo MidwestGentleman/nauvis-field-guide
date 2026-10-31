@@ -306,6 +306,7 @@ a.art-card:hover { border-color: var(--copper); }
 .next-prev a:hover { border-color: var(--copper); }
 
 .site-foot { max-width: 46rem; margin: 4em auto 0; font-size: var(--fs-sm); color: var(--muted); }
+.made-by .heart { color: var(--fire); }
 .data-stamp { font-size: var(--fs-xs); }
 .loading { color: var(--muted); }
 
