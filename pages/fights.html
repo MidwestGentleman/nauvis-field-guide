@@ -1,0 +1,85 @@
+<h1>Your first fights</h1>
+<p class="lede">Fights are turn-based on a square grid. You have 6 AP for spells and 3 MP for steps each turn, and those
+  numbers never grow with your level. Losing costs nothing but time.</p>
+
+<figure class="art-figure wide"><img class="art big" src="assets/scenes/first-fight.webp" alt="An Ikari next to a Lorito Nakwa on a fight board beside a pool. Blue tiles are starting cells and red tiles show the spell's area." width="800" height="450" loading="lazy" decoding="async"><figcaption>An Ikari casting Fury at a Lorito Nakwa, rendered with the game's own client. Red tiles are the spell's area; blue tiles are starting cells. The label shows the mob's level and its HP after the hit.</figcaption></figure>
+
+<h2 id="start">Starting a fight</h2>
+<ol class="steps">
+  <li>
+    <h3>Engage a group</h3>
+    <p>Walk to a visible mob group and click it. Each group is one fight, with up to 6 fighters per side. Friends in
+      your party can join during placement.</p>
+  </li>
+  <li>
+    <h3>Place yourself</h3>
+    <p>Pick a starting cell from the blue cells, then press Ready. <b>Each placement move is a transaction</b>, so
+      choose once. The fight starts when everyone is ready, or can be forced to start after 60 seconds.</p>
+  </li>
+  <li>
+    <h3>Take turns</h3>
+    <p>Players always act first, then mobs, interleaved by side size: 1 v 3 plays P M M M, and 3 v 3 plays P M P M P M.
+      There's no initiative stat. Among players, whoever opened the fight goes first.</p>
+  </li>
+  <li>
+    <h3>End your turn</h3>
+    <p>A whole turn (moves and spells) is sent as one transaction when you end it. You have up to 45 seconds; after
+      that, anyone can end your turn for you.</p>
+  </li>
+</ol>
+
+<h2 id="apmp">AP, MP and range</h2>
+<ul>
+  <li><img data-art="ui:action_star" alt="AP"> <b>6 AP</b>, <img data-art="ui:movement_diamond" alt="MP"> <b>3 MP</b>
+    for every class, at every level. Only gear and pets add more: the Fuwa Horn Torque gives +1 AP, the Beru pet +1 AP,
+    the Corbac pet +1 MP. Higher spell ranks often lower a spell's AP cost.</li>
+  <li>Range counts steps on the grid, never diagonals. Some spells need a straight line; most need <b>line of sight</b>.
+  </li>
+  <li><b>Every living fighter blocks line of sight</b>, your allies included. Obstacles block it too; holes don't.</li>
+  <li>Area spells can be aimed at an empty cell, for example between two mobs to hit both. Some areas also hit your
+    allies, and the spell lists say so.</li>
+</ul>
+
+<h2 id="tackle">Tackle</h2>
+<p>When you leave a cell next to an enemy, you make an escape roll of your Agility against theirs. If it fails, you lose
+  a big share of your AP <b>and</b> MP. With 0 Agility you escape a Lorito about a quarter of the time. Agility only
+  helps in steps of 10.</p>
+<p>Casting spells doesn't trigger the roll; only leaving the cell does.</p>
+
+<h2 id="damage">Elements and damage</h2>
+<p>Each spell line deals one element: <span class="el el-earth">earth</span>, <span class="el el-fire">fire</span>,
+  <span class="el el-water">water</span> or <span class="el el-air">air</span>. Its damage is multiplied by your
+  matching stat: Strength, Intelligence, Chance or Agility. Mobs have resistances per element, shown on each <a
+    href="#/bestiary">bestiary</a> page. Positive resistance cuts damage (50% at most); negative resistance adds damage
+  with no limit. Mobs whose name contains Nakwa are water, Stone or Terra earth, Magma or Fire fire, and Gale or Wind
+  air. The full maths is on <a href="#/combat">Stats, elements and damage</a>.</p>
+
+<h2 id="mobs">How mobs think</h2>
+<ul>
+  <li>Each mob goes for the <b>nearest</b> enemy it can reach and casts the first usable spell in its list.</li>
+  <li>Some mobs push or pull, such as boars and some Aragnes, which changes who is nearest.</li>
+</ul>
+
+<h2 id="packs">Where mobs spawn</h2>
+<p>Around Thebes, mobs come alone or in pairs. Bigger packs appear further from the world centre, and mob levels rise
+  with distance too. The <a href="#/regions">regional spawn rules</a> list what spawns where.</p>
+
+<h2 id="lose">Healing and losing</h2>
+<ul>
+  <li>You can't use food or potions during a fight.</li>
+  <li>When you lose, you keep every item and all your XP. Your HP drops to almost nothing and comes back at 1 HP per second, or faster
+    if you eat.</li>
+  <li><b>There is no flee.</b> Forfeit gives the same result as losing, with no XP and no loot.</li>
+  <li>In a dungeon, losing a room ends your run and your key is gone. Earlier rooms' loot is kept.</li>
+</ul>
+
+<h2 id="loot">XP and loot</h2>
+<ul>
+  <li>Each defeated mob rolls its loot table once, and the drops are dealt round-robin to the winners. More players
+    don't make more loot. A teammate who died still counts if the team wins.</li>
+  <li>The winning team's average Chance raises every drop chance a little: +6 Chance is about +1%.</li>
+  <li>Party XP is multiplied by 1.0, 1.1, 1.5, 2.3, 3.1 or 3.6 for 1–6 players, then split by level. Wisdom adds 1% XP
+    per point.</li>
+  <li>XP falls off sharply when you're far above the mobs' level. A party only gets its bonus if its weakest member
+    is at least a third of the strongest's level.</li>
+</ul>

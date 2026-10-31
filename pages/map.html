@@ -1,0 +1,96 @@
+<h1>Map and biomes</h1>
+<p class="lede">Nauvis is a square world, 100,000 blocks on a side, cut into 512-block zones. Each zone outside a city
+  belongs to one biome, and the biome decides which mobs and resources can spawn in it.</p>
+
+<div data-widget="figure" data-arg="world:nauvis|Nauvis, the starting world."></div>
+
+<h2 id="reading">Reading the map</h2>
+
+<ul>
+  <li><b>The centre is 0, 0.</b> The in-game map puts the Star Gate at the centre of the world. (On chain the same spot
+    is 50,000, 50,000; fan tools sometimes show those numbers.)</li>
+  <li><b>Zones</b> are 512 × 512 blocks, numbered from the zone that holds the centre (0, 0). Thebes is the 3 × 3 block
+    from 0, −1 to 2, 1. Only the 3 × 3 zones around your selected character are loaded. Each zone has its own roster of
+    mob groups and resource patches, rolled from a seed.</li>
+  <li><b>Undiscovered zones look empty.</b> Press <kbd>G</kbd> inside one to search it (one transaction). After that,
+    the zone can be searched again, which rerolls everything in it, once every 2 hours.</li>
+  <li><b>Cities</b> cover the 3 × 3 zones around their centre and follow special spawn rules. See <a
+      href="#/regions">regional spawn rules</a>.</li>
+  <li><b>Distance from the centre means danger.</b> Near the Star Gate, mobs are at the low end of their level range and
+    come alone. Groups grow to 2–4 about 2,000 blocks out and to 6 further away, and levels reach the top of their range
+    around 20,000 blocks out.</li>
+</ul>
+<div data-widget="zone-grid"></div>
+<h2 id="cities">The three cities</h2>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>City</th>
+        <th>Map position (x, z from centre)</th>
+        <th>Dungeon</th>
+        <th>Distance feel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Thebes</b></td>
+        <td>+512, 0</td>
+        <td>Gilded Lorito</td>
+        <td>Next to spawn; solo, low-level mobs</td>
+      </tr>
+      <tr>
+        <td><b>The Ruins</b></td>
+        <td>about −13,900, −1,300</td>
+        <td>Tangled Aftermath</td>
+        <td>Groups of up to 6, mid-level</td>
+      </tr>
+      <tr>
+        <td><b>Fuwage</b></td>
+        <td>about −35,800, −27,300</td>
+        <td>Ivory Rampart</td>
+        <td>Far out; full groups, top-of-range levels</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>Potions of Thebes, the Ruins and Fuwage teleport you to their city; a Recall Potion takes you back to the Star Gate.
+  None of them work during a harvest, during a protector ambush, or inside a dungeon run. Riding a pet (<kbd>X</kbd>)
+  makes you 1.5× faster.</p>
+<div class="callout warn">
+  <p><strong>The Ruins is heavy to render.</strong> If the game struggles near it, lower the graphics quality and render
+    distance before you arrive.</p>
+</div>
+
+<h2 id="biomes">How biomes are chosen</h2>
+<p>Each world lays its biomes out on a 3 × 3 grid of temperature (rows) and humidity (columns), so the same climate
+  always produces the same biome. Nauvis has five land biomes, plus ocean:</p>
+<div data-widget="biome-grid" data-arg="nauvis"></div>
+<p>The second world, <b>Yakutia</b>, opens at character level 20. Stand within 10 blocks of the Star Gate, press
+  <kbd>T</kbd> and pick it. Yakutia has no cities, dungeons or roaming mobs; it's a world of high-tier resources guarded
+  by protectors.</p>
+<div data-widget="biome-grid" data-arg="yakutia"></div>
+
+<h2 id="minimap">How each biome looks on the minimap</h2>
+<p>The minimap colours each spot by what's on the ground there, then shades it so hills catch light from the north-west.
+  These are real minimap views, one per biome, made with the game's own map-drawing code. Each spot was chosen where
+  that biome fills the whole view, away from cities, and the markers are left off. A biome isn't one flat colour: forest
+  has sandy clearings, rainforest runs down to the sea, and the highlands are bare grey rock with snow on the peaks.</p>
+<div data-widget="minimap-gallery" data-arg="nauvis"></div>
+
+<h2 id="per-biome">What lives in each Nauvis biome</h2>
+<p>This table comes straight from the game's spawn tables. Mobs are sorted by level; each resource shows the job level
+  you need to gather it. "+ Thebes" and the like mean it also spawns inside that city's area, whatever the biome there;
+  see <a href="#/regions">regional rules</a> for why that matters.</p>
+<div data-widget="biome-table" data-arg="nauvis"></div>
+
+<h2 id="yakutia">Yakutia resources</h2>
+<div data-widget="figure" data-arg="world:yakutia|Yakutia, the second world, opens at character level 20."></div>
+<p>On Yakutia's minimap almost everything is snow, so tell its biomes apart by what breaks the white: frozen blue water
+  in taiga, frostfen and blue steppe, dark ice across black ice, and black rock in the caldera.</p>
+<div data-widget="minimap-gallery" data-arg="yakutia"></div>
+<div data-widget="biome-table" data-arg="yakutia"></div>
+
+<p>The official encyclopedia also has world and biome pages, for example <a
+    href="https://aresrpg.world/encyclopedia/worlds/nauvis/biome/forest" target="_blank" rel="noopener">Nauvis
+    forest</a>.</p>

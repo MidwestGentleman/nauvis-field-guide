@@ -1,0 +1,57 @@
+<h1>How this site stays current</h1>
+<p class="lede">Most of this guide writes itself. Every class, spell, mob, item, recipe, biome and dungeon on these pages is read from the game's own public files when the page loads, so a game update shows up here without anyone editing a page.</p>
+
+<h2 id="sources">Where each piece comes from</h2>
+<div class="table-wrap"><table>
+  <thead><tr><th>Data</th><th>Source</th><th>How fresh</th></tr></thead>
+  <tbody>
+    <tr><td>Classes, 240 spells, stat cost ladders, class titles</td><td>Public repo: <code>seed/content/spells.json</code>, <code>packages/immutable/src/*.ts</code>, the English UI strings</td><td>Latest release, read on each visit</td></tr>
+    <tr><td>Mobs, loot tables, resistances</td><td>Public repo: <code>seed/content/mobs.json</code></td><td>Latest release</td></tr>
+    <tr><td>Items and recipes</td><td><code>items.json</code>, <code>recipes.json</code></td><td>Latest release</td></tr>
+    <tr><td>Gathering: job and level per resource, guardians, rare variants</td><td><code>packages/immutable/src/gathering.ts</code>, <code>experience.ts</code>; odds from the gathering contract</td><td>Latest release (odds checked October 2026)</td></tr>
+    <tr><td>Archimob swap odds (1% per pack member) and which mobs each archimob replaces</td><td><code>packages/move-math/sources/zone_math.move</code>; families from the mob list</td><td>Latest release (odds checked October 2026)</td></tr>
+    <tr><td>Biomes, spawn tables, cities</td><td><code>worlds.json</code></td><td>Latest release</td></tr>
+    <tr><td>Dungeons and the beginner checklist</td><td><code>dungeons.json</code>, <code>journey.json</code></td><td>Latest release</td></tr>
+    <tr><td>Pictures: item, mob, spell and class art, stat icons, world and city screenshots</td><td>Public repo: <code>seed/icons/</code>, <code>packages/ui/src/assets/</code>, <code>packages/frontend/src/assets/worlds/</code></td><td>Latest release, loaded on each visit</td></tr>
+    <tr><td>Minimap views of each biome</td><td>Rendered by this guide with the game's own map-drawing code and world data (<code>scripts/render-minimaps.mjs</code>), stored here as small pictures</td><td>Re-rendered by hand after terrain changes</td></tr>
+    <tr><td>Live character count by class</td><td>Sui mainnet, read with GraphQL</td><td>Live</td></tr>
+    <tr><td>Rules, formulas, advice, walkthroughs</td><td>Written by hand from the game's contracts and from play</td><td>Checked October 2026</td></tr>
+  </tbody>
+</table></div>
+<p>The game content also lives on chain: every item, mob, spell, recipe, world and dungeon is a shared object under one content registry. A check on 29 October 2026 found the chain copy and the repo files identical for all 68 mobs. The repo files are much quicker to read, so the site uses them and treats the chain as the authority.</p>
+
+<h2 id="how">How it works</h2>
+<ol class="steps">
+  <li><h3>Find the release</h3><p>The browser asks GitHub for the game's latest release tag. The development branch can run ahead of what's live, so the site never reads it unless the release lookup fails.</p></li>
+  <li><h3>Read the content files</h3><p>It fetches about a dozen files from <code>raw.githubusercontent.com</code>, which allows cross-site reads. The site parses five small TypeScript files as text and never runs them.</p></li>
+  <li><h3>Check the shape</h3><p>If a file is missing a field the site relies on, loading stops with an "upstream schema changed" message instead of showing wrong numbers.</p></li>
+  <li><h3>Cross-reference</h3><p>It works out who drops what, where each mob spawns, which recipes use an item, and each class's elements.</p></li>
+  <li><h3>Go live where it's cheap</h3><p>Small widgets read Sui mainnet directly through its public GraphQL endpoint. Reads only; nothing is ever signed.</p></li>
+</ol>
+
+<h2 id="licence">Why the game files aren't copied here</h2>
+<p>The AresRPG repository is <b>source-available</b>, not open source, and its licence forbids redistributing its files. This site's repository therefore contains no game files, pictures included. The minimap views on the map page are the only stored pictures: renders this guide made, like screenshots. Your browser reads the data and loads the art directly from the official repository, and the hand-written pages only state facts and formulas in our own words. An optional script, <code>scripts/build-data.mjs</code>, writes a local cache for offline work; that cache is git-ignored and must not be published.</p>
+
+<h2 id="live">What could be added live</h2>
+<p>All of these were tested read-only against mainnet:</p>
+<ul>
+  <li><b>Character stats and leaderboards by level or XP:</b> all characters can be read in a few GraphQL calls.</li>
+  <li><b>Recent fights and dungeon clears:</b> from on-chain events.</li>
+  <li><b>A "game data changed" banner:</b> compare the content registry's revision number in one small request.</li>
+  <li><b>Market prices:</b> possible, but a full scan of every kiosk takes hundreds of calls. That belongs in a scheduled job that publishes a snapshot, not in every visitor's browser.</li>
+  </ul>
+
+<h2 id="cannot">What can't be read automatically</h2>
+<ul>
+  <li><b>Strategy:</b> builds, walkthroughs and "is it worth it" can't be read from data, and this guide leaves them out.</li>
+  <li><b>Official leaderboards and presence:</b> they sit behind the game server's signed-in connection.</li>
+  <li><b>Gas prices per action:</b> they come from the network, not the game, so the numbers here are observed examples.</li>
+  <li><b>Formulas:</b> they live in contract code, not data, so the hand-written formula pages carry a "checked" date.</li>
+</ul>
+
+<h2 id="maintain">Maintenance checklist</h2>
+<ul>
+  <li>When the game ships a release, open the site. If it loads, the data pages are current.</li>
+  <li>If it shows "upstream schema changed", update <code>assets/source.js</code> to the new file shape.</li>
+  <li>Skim the hand-written pages when patch notes mention crafting, fights, gathering or dungeons.</li>
+</ul>

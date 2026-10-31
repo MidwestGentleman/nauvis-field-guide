@@ -1,0 +1,108 @@
+<h1>Create your character</h1>
+<p class="lede">Creating a character takes a minute and costs 1 SUI. Four of the choices can never be changed, so read
+  this page before you click Create.</p>
+
+<div class="callout warn">
+  <p><strong>Permanent:</strong> class, name, sex and the three colours. No item, scroll or contract changes them later.
+    A name is also reserved forever: delete the character and nobody, you included, can use that name again.</p>
+</div>
+
+<h2 id="class">Pick a class</h2>
+<p>There are 12 classes. Each has exactly 20 spells: three at level 1, and the rest at levels 3, 6, 9, 13, 17, 21, 26,
+  31, 36, 42, 48, 54, 60, 70, 80, 90 and 100. Every class starts with the same 6 AP, 3 MP and 55 HP, so what separates
+  them is their spells and which stats they can raise cheaply.</p>
+<p>All twelve side by side. The bar under each class shows how many of its damaging spells use each element.</p>
+<div data-widget="class-overview"></div>
+<p>Open any class to read all 20 spells at every rank. Its back link brings you here. For a sortable table, see
+  <a href="#/classes">Choosing a class</a>.</p>
+
+<h2 id="name">Pick a name</h2>
+<ul>
+  <li>4 to 19 characters.</li>
+  <li>Printable ASCII only: no spaces and no accents. Names are stored in lowercase.</li>
+  <li>The name must be unused, ever. Names of deleted characters stay taken.</li>
+</ul>
+
+<h2 id="after">What you can change later</h2>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Thing</th>
+        <th>Can you undo it?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Stat points (5 per level)</td>
+        <td>Yes, with a <b>Scroll of Rebirth</b>, which refunds every stat point.</td>
+      </tr>
+      <tr>
+        <td>Spell points (1 per level)</td>
+        <td>Yes, with a <b>Scroll of Oblivion</b>, which refunds every spell point.</td>
+      </tr>
+      <tr>
+        <td>Gear</td>
+        <td>Swap any time outside a fight. You need a character level at least equal to the item's level.</td>
+      </tr>
+      <tr>
+        <td>Class, name, sex, colours</td>
+        <td><b>No.</b></td>
+      </tr>
+      <tr>
+        <td>Deleting the character</td>
+        <td>Allowed, but the 1 SUI isn't refunded and the name stays reserved.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="stats">How stats work</h2>
+<p>Each damage element is scaled by one stat:</p>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Element</th>
+        <th>Stat</th>
+        <th>Also does</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="el el-earth">earth</span></td>
+        <td>Strength</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><span class="el el-fire">fire</span></td>
+        <td>Intelligence</td>
+        <td>Boosts your heals</td>
+      </tr>
+      <tr>
+        <td><span class="el el-water">water</span></td>
+        <td>Chance</td>
+        <td>The winning team's average Chance raises every loot drop chance</td>
+      </tr>
+      <tr>
+        <td><span class="el el-air">air</span></td>
+        <td>Agility</td>
+        <td>Better crit odds, and harder to get stuck next to enemies (tackle)</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>Vitality</td>
+        <td>+1 max HP per point (+2 for Ikari)</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>Wisdom</td>
+        <td>+1% fight XP per point, and better at removing or resisting AP/MP loss. It costs 3 points for +1.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>A spell deals <code>roll × (100 + stat) / 100</code>, plus any flat Damage bonus. So 100 Strength doubles your earth
+  spells for example.</p>
+
+</ul>

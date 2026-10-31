@@ -1,0 +1,28 @@
+{
+  "shugo/Natural Attack": {
+    "file": "shugo-natural-attack",
+    "seconds": 4.09,
+    "fps": 15,
+    "size": [
+      320,
+      240
+    ],
+    "bytes": {
+      "webp": 72772,
+      "mp4": 29100
+    }
+  },
+  "iyashi/Healing Word": {
+    "file": "iyashi-healing-word",
+    "seconds": 4.05,
+    "fps": 15,
+    "size": [
+      320,
+      240
+    ],
+    "bytes": {
+      "webp": 120332,
+      "mp4": 49465
+    }
+  }
+}

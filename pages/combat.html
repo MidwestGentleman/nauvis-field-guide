@@ -1,0 +1,52 @@
+<h1>Stats, elements and damage</h1>
+<p class="lede">These are the formulas the game runs, written out plainly. They explain where the numbers in a fight come from.</p>
+
+<h2 id="stats">What each stat does</h2>
+<div class="table-wrap"><table>
+  <thead><tr><th>Stat</th><th>Effect</th></tr></thead>
+  <tbody>
+    <tr><td><img data-art="ui:stat_strength" alt="">Strength</td><td>Scales <span class="el el-earth">earth</span> damage</td></tr>
+    <tr><td><img data-art="ui:stat_intelligence" alt="">Intelligence</td><td>Scales <span class="el el-fire">fire</span> damage and all heals</td></tr>
+    <tr><td><img data-art="ui:stat_chance" alt="">Chance</td><td>Scales <span class="el el-water">water</span> damage. The winning team's average Chance multiplies every drop chance by (600 + Chance) / 600.</td></tr>
+    <tr><td><img data-art="ui:stat_agility" alt="">Agility</td><td>Scales <span class="el el-air">air</span> damage, improves crit odds, and sets tackle (escaping enemies, or holding them in place) in steps of 10</td></tr>
+    <tr><td><img data-art="ui:health_heart" alt="">Vitality</td><td>+1 max HP per point. Max HP = 50 + 5 × level + Vitality.</td></tr>
+    <tr><td><img data-art="ui:stat_wisdom" alt="">Wisdom</td><td>+1% fight XP per point, and better odds both when removing AP/MP and when resisting removal</td></tr>
+    <tr><td>Power</td><td>Counts as all four elemental stats at once (from buffs)</td></tr>
+    <tr><td><img data-art="ui:stat_raw_damage" alt="">Damage</td><td>Flat bonus added to every damage line, once per target</td></tr>
+    <tr><td><img data-art="ui:stat_critical" alt="">Critical</td><td>Lowers a spell's "1 in X" crit odds</td></tr>
+  </tbody>
+</table></div>
+<p>Each level gives 5 stat points and 1 spell point. Stat prices rise as a stat grows, and the price steps differ by class; each class page has the chart. Vitality is always 1 point for +1 (Ikari gets +2). Wisdom is always 3 points for +1.</p>
+
+<h2 id="elements">Which element beats which</h2>
+<p>AresRPG has no fixed rock-paper-scissors between elements. Every mob has its own resistance to each of the four, read from the game's data. The pattern across all mobs is still clear. Mobs resist their own element most, so a fire mob takes the least damage from fire. Most mobs are also weak to one other element, and a negative resistance adds that much extra damage with no cap. Protectors (the resource guardians) have no weakness at all: they only resist their own element harder.</p>
+<div data-widget="element-web"></div>
+
+<h2 id="damage">The damage formula</h2>
+<ol>
+  <li>Roll the spell's min–max for that element.</li>
+  <li>Multiply by (100 + your stat for that element) / 100, then add your flat Damage.</li>
+  <li>Apply the target's resistance to that element. Positive resistance reduces damage, capped at 50%. Negative resistance increases it, with no cap.</li>
+  <li>Subtract any shields. Damage can go all the way to 0.</li>
+</ol>
+<p>Example: a 10–14 fire spell with 100 Intelligence and +5 Damage does 25–33 before resistance.</p>
+<ul>
+  <li><b>Heals</b> = roll × (100 + Intelligence) / 100.</li>
+  <li><b>Life steal</b> deals normal damage, and you heal half of what landed.</li>
+  <li><b>Poison</b> (damage over time) is calculated once when cast, then ticks at the start of each of the target's turns.</li>
+  <li><b>Crits</b> are rolled once per spell per turn. If the first cast of a spell crits, every cast of it that turn crits. A crit swaps in the spell's crit effects, and weapon crits deal ×1.5.</li>
+  <li><b>Weapon strikes</b> hit every target in the weapon's area, allies included. Using your class's weapon type adds +10%.</li>
+</ul>
+
+<h2 id="apmp">AP and MP removal</h2>
+<p>Taking away AP or MP is a contest of Wisdom: it works about half the time against low-Wisdom targets, and gets close to the 10% floor against high-Wisdom ones. Some spells say they <b>can't be dodged</b>, and those always land. Mobs have no Strength, Intelligence, Chance or flat Damage, so lowering those on a mob does nothing. Lowering a mob's Agility or Wisdom does work.</p>
+
+<h2 id="spellpoints">Spell ranks</h2>
+<div class="table-wrap"><table>
+  <thead><tr><th>Raise</th><th class="num">1→2</th><th class="num">2→3</th><th class="num">3→4</th><th class="num">4→5</th><th class="num">5→6</th><th class="num">Total</th></tr></thead>
+  <tbody><tr><td>Spell points</td><td class="num">1</td><td class="num">2</td><td class="num">3</td><td class="num">4</td><td class="num">5</td><td class="num">15</td></tr></tbody>
+</table></div>
+<p>Rank 1 is free once a spell unlocks. You earn 1 spell point per level, so at level 31 you have 30 points: exactly two spells at rank 6.</p>
+
+<h2 id="xp">Character XP</h2>
+<p>The XP curve tops out at level 200. Reaching level 10 takes 19,200 XP, level 20 takes 171,000, level 30 takes 621,600 and level 50 takes 5,350,000. Only winners earn XP. In a party, the mobs' XP is multiplied by 1.0 / 1.1 / 1.5 / 2.3 / 3.1 / 3.6 for 1–6 players, then shared by level and boosted by each player's Wisdom. XP shrinks when your level is far above the mobs'.</p>

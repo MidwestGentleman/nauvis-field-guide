@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nauvis Field Guide</title>
+  <meta name="description" content="An unofficial, fan-made beginner guide and wiki for AresRPG: first steps, classes, map, biomes and mobs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="assets/cube.svg" type="image/svg+xml">
+  <script>
+    try { const t = localStorage.getItem('fg-theme'); if (t) document.documentElement.dataset.theme = t } catch {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#article">Skip to the article</a>
+  <header class="topbar">
+    <button class="menu-btn" id="menu-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+      <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <a class="brand" href="#/">
+      <img src="assets/cube.svg" alt="" width="28" height="28">
+      <span class="brand-name">Nauvis Field Guide</span>
+      <span class="brand-tag">Unofficial AresRPG fan wiki</span>
+    </a>
+    <button class="search-trigger" id="search-trigger" aria-haspopup="dialog">
+      <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>Search mobs, spells, items…</span>
+      <kbd>/</kbd>
+    </button>
+    <div class="top-actions">
+      <button class="icon-btn" id="theme-btn" aria-label="Switch light or dark theme">
+        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 2.5a7.5 7.5 0 1 0 0 15z" fill="currentColor"/><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+      <a class="play-link" href="https://aresrpg.world" target="_blank" rel="noopener">Play the game</a>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="sidebar" aria-label="Guide sections"></nav>
+    <div class="nav-scrim" id="nav-scrim" hidden></div>
+    <main class="article-wrap">
+      <article class="article" id="article" tabindex="-1"><p class="loading">Loading the guide…</p></article>
+      <footer class="site-foot">
+        <p>Nauvis Field Guide is an unofficial fan project. It is not made, endorsed or checked by the AresRPG team. Game data is read from the game's public source repository; mistakes here are ours. For the official word, see the <a href="https://aresrpg.world/encyclopedia" target="_blank" rel="noopener">in-game encyclopedia</a>.</p>
+        <p class="data-stamp" id="data-stamp"></p>
+      </footer>
+    </main>
+    <aside class="toc" id="toc" aria-label="On this page"></aside>
+  </div>
+
+  <div class="search-dialog" id="search-dialog" role="dialog" aria-modal="true" aria-label="Search the guide" hidden>
+    <div class="search-panel">
+      <input id="search-input" type="search" role="combobox" aria-expanded="true" aria-autocomplete="list" placeholder="Try “hoe”, “Bramble”, “Burning Arrow”, “desert”" autocomplete="off" spellcheck="false" aria-controls="search-results">
+      <ul id="search-results" class="search-results" role="listbox"></ul>
+      <p class="search-hint">Enter opens the highlighted result. Esc closes.</p>
+    </div>
+  </div>
+
+  <script src="assets/effects.js"></script>
+  <script src="assets/app.js" type="module"></script>
+</body>
+</html>

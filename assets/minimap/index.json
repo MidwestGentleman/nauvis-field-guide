@@ -1,0 +1,69 @@
+{
+  "radius": 224,
+  "index": {
+    "nauvis": {
+      "plains": {
+        "x": 0,
+        "z": 960,
+        "share": 100
+      },
+      "forest": {
+        "x": -864,
+        "z": 96,
+        "share": 100
+      },
+      "rainforest": {
+        "x": -576,
+        "z": -768,
+        "share": 100
+      },
+      "highlands": {
+        "x": 768,
+        "z": 960,
+        "share": 100
+      },
+      "desert": {
+        "x": -864,
+        "z": 672,
+        "share": 100
+      },
+      "ocean": {
+        "x": -1824,
+        "z": 1728,
+        "share": 100
+      }
+    },
+    "yakutia": {
+      "taiga": {
+        "x": 1152,
+        "z": 1920,
+        "share": 100
+      },
+      "black_ice": {
+        "x": 2208,
+        "z": -3840,
+        "share": 100
+      },
+      "ice_peaks": {
+        "x": 0,
+        "z": 768,
+        "share": 100
+      },
+      "blue_steppe": {
+        "x": 96,
+        "z": -576,
+        "share": 100
+      },
+      "frostfen": {
+        "x": -384,
+        "z": 0,
+        "share": 100
+      },
+      "caldera": {
+        "x": 576,
+        "z": -96,
+        "share": 100
+      }
+    }
+  }
+}

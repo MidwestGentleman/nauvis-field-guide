@@ -1,0 +1,142 @@
+<h1>Gathering, jobs and crafting</h1>
+<p class="lede">Each character has 11 jobs that level on their own, separate from character level. Three jobs gather raw
+  resources and eight craft. Crafting is a gamble at first, so plan for failures.</p>
+
+<h2 id="loop">How it fits together</h2>
+<p>Every craft needs materials, and there are two ways to get them:</p>
+<ul>
+  <li><b>Gathering:</b> walk up to a resource node (wheat, quartz, mushrooms…) with the right tool and harvest it. This
+    levels your gathering job: Farmer, Miner or Herbalist.</li>
+  <li><b>Hunting:</b> win fights against mobs. This levels your character, and the mobs drop materials like branches,
+    hides, shards and water.</li>
+</ul>
+<p><b>Crafting</b> turns both kinds of material into gear, tools, keys, potions and food. Each craft levels the job that
+  made it. Higher job levels unlock better resources and bigger recipes, and raise your success chance. So gathering and
+  hunting feed crafting, and crafting pushes your jobs up for the next tier.</p>
+
+<h2 id="jobs">The 11 jobs</h2>
+<div data-widget="job-table"></div>
+<p>Jobs, stats and levels belong to each character. Your inventory and marketplace kiosk are shared across all your
+  characters. Job XP goes to the character who gathers or crafts.</p>
+
+<h2 id="gathering">Gathering</h2>
+<ul>
+  <li>Equip the right tool, walk up to a node and press <kbd>F</kbd>. Any hoe works for farming; the tool's level
+    doesn't matter.</li>
+  <li>Each resource has a <b>job level gate</b>: tier 1 needs level 1, then tier 2 needs 10, tier 3 needs 20, and so on
+    up to tier 11 at 100.</li>
+  <li>You stand still while gathering: 12 seconds per node at level 1, falling to about 2 seconds near level 100. Yield
+    per node grows with your job level.</li>
+  <li>Each gather gives job XP of 10 + half the resource's required level.</li>
+  <li>Each gather has a <b>0.1% chance</b> of a bonus golden rare (golden wheat, golden mushroom, infinity quartz…).
+    Golden rares are pet-food ingredients and sell well.</li>
+</ul>
+<div class="callout warn">
+  <p><strong>Protector ambush, 2% per gather.</strong> Sometimes the resource's guardian appears. You keep your harvest,
+    but you're rooted until you fight it alone. Tier-1 protectors are level 1–5. A win always drops a bag of exactly 50
+    of that resource, worth 10–15 normal gathers.</p>
+</div>
+
+<h3 id="tiers">Resource tiers</h3>
+<div data-widget="gallery" data-arg="item:wheat,item:quartz,item:green_mushroom,item:golden_mushroom"></div>
+<div data-widget="tier-table"></div>
+<p>Yakutia opens at character level 20. The <a href="#/map">map and biomes</a> page lists exactly what grows in each
+  biome.</p>
+
+<h2 id="crafting">Crafting</h2>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Distinct ingredients</th>
+        <th class="num">Job level needed</th>
+        <th class="num">Job XP per attempt</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1–2</td>
+        <td class="num">1</td>
+        <td class="num">10</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td class="num">10</td>
+        <td class="num">25</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="num">20</td>
+        <td class="num">50</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td class="num">40</td>
+        <td class="num">100</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td class="num">60</td>
+        <td class="num">250</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td class="num">80</td>
+        <td class="num">500</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td class="num">100</td>
+        <td class="num">1,000</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ul>
+  <li><b>Success chance</b> = 50% + 0.5% per job level above 1, capped at 99%. That's 50% at level 1, 54.5% at 10 and
+    74.5% at 50.</li>
+  <li><b>A failed attempt burns every ingredient</b>, but still gives job XP.</li>
+  <li>A recipe that is 4 or more ingredient slots below your current maximum gives no XP. Move on to bigger recipes as
+    you level.</li>
+  <li>Stackable items (powders, food, keys) can be crafted up to 1,000 attempts in a single transaction. Gear is one
+    attempt per transaction.</li>
+  <li>Gear rolls random stats inside a range when it's crafted, so a re-craft can roll better. You can wear an item once
+    your character level is at least the item's level.</li>
+</ul>
+<h2 id="water">Water</h2>
+<p>There are no Water nodes. <b>Water only drops from mobs</b>, and most refining recipes need it (2 raw + 1 water).
+  Good sources: <a href="#/mob/lorito__water">Lorito Nakwa</a> around Thebes, <a href="#/mob/misui__water">Misui
+    Nakwa</a> in rainforests, and <a href="#/mob/crab">Crabs</a> in deserts. "Nakwa" in a mob's name means water.</p>
+<div data-widget="gallery" data-arg="item:water,mob:lorito__water,mob:misui__water,mob:crab"></div>
+<h2 id="plan">Planning a craft</h2>
+  <ol class="steps">
+    <li>
+      <h3>Find the item on the recipe map</h3>
+      <p>Search for it on the <a href="#/recipe-map">recipe map</a>. It lights up every ingredient behind it, down to
+        raw resources and mob drops.</p>
+    </li>
+    <li>
+      <h3>Check the job gates</h3>
+      <p>Each sub-recipe has its own job and level. Your first Gilded Lorito key, for example, needs Tailor 10 and
+        Jeweler 10.</p>
+    </li>
+    <li>
+      <h3>Divide by your success rate</h3>
+      <p>At 50%, plan two attempts per craft at every step of the tree.</p>
+    </li>
+    <li>
+      <h3>Subtract what you own</h3>
+      <p>What's left is your shopping list: what to gather, hunt or buy.</p>
+    </li>
+  </ol>
+  <p>The <a href="#/planner">craft planner</a> does this for you. Pick an item and how many you want, and it lists
+    the raw materials (with extra for failed attempts) and the crafts in the order you'd do them.</p>
+
+  <h2 id="crushing">Crushing and runes</h2>
+  <p>You can <b>crush</b> unwanted gear. The item is destroyed and about 25% of each stat line comes back as
+    <b>runes</b>
+    (Ba, Pa and Ra sizes). The job that crafts an item can <b>scribe</b> a rune onto it: the rune is used up, and the
+    item
+    can gain the stat, gain it while losing another, or lose stats. Unlist an item before crushing it.</p>
+  <p>Every item you own holds a small <b>storage deposit</b> on Sui. Crushing an item, or using up a stack, returns
+    about 99% of it, so your SUI balance goes up slightly after you crush something.</p>
