@@ -25,6 +25,7 @@ const NAV = [
       ['encounters', 'How you meet mobs'],
       ['bestiary', 'Bestiary'],
       ['dungeons', 'Dungeons and keys'],
+      ['tournaments', 'Tournaments'],
     ],
   },
   { group: 'Classes', pages: [['classes', 'Choosing a class']], classes: true },

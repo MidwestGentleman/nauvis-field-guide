@@ -27,13 +27,14 @@
   <li>Roll the spell's min–max for that element.</li>
   <li>Multiply by (100 + your stat for that element) / 100, then add your flat Damage.</li>
   <li>Apply the target's resistance to that element. Positive resistance reduces damage, capped at 50%. Negative resistance increases it, with no cap.</li>
-  <li>Subtract any shields. Damage can go all the way to 0.</li>
+  <li>Subtract any shields that match the element (or cover all elements). Damage can go all the way to 0.</li>
 </ol>
 <p>Example: a 10–14 fire spell with 100 Intelligence and +5 Damage does 25–33 before resistance.</p>
 <ul>
   <li><b>Heals</b> = roll × (100 + Intelligence) / 100.</li>
   <li><b>Life steal</b> deals normal damage, and you heal half of what landed.</li>
-  <li><b>Poison</b> (damage over time) is calculated once when cast, then ticks at the start of each of the target's turns.</li>
+  <li><b>Poison</b> (damage over time) is calculated once when cast, then ticks at the start of each of the target's turns, once for every turn it lasts. Shields reduce each tick, the same way they reduce a direct hit; resistance isn't applied again.</li>
+  <li><b>Regeneration</b> (healing over time) ticks the same way, at the start of each of the target's turns.</li>
   <li><b>Crits</b> are rolled once per spell per turn. If the first cast of a spell crits, every cast of it that turn crits. A crit swaps in the spell's crit effects, and weapon crits deal ×1.5.</li>
   <li><b>Weapon strikes</b> hit every target in the weapon's area, allies included. Using your class's weapon type adds +10%.</li>
 </ul>
