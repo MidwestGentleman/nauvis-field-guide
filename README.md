@@ -1,6 +1,6 @@
 # Nauvis Field Guide
 
-Live at https://nauvis-field-guide.aresrpg-wiki.workers.dev
+Live at https://aresrpg.wiki
 
 An unofficial, fan-made beginner guide and wiki for [AresRPG](https://aresrpg.world), the on-chain voxel MMORPG on Sui. It is not affiliated with or endorsed by the AresRPG team.
 

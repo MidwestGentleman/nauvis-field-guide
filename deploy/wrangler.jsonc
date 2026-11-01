@@ -1,7 +1,13 @@
 // Cloudflare Workers static site: serves only .dist/ (built by scripts/deploy.mjs), no Worker code.
+// aresrpg.wiki is the main address; the workers.dev address stays on so older links keep working.
 {
   "name": "nauvis-field-guide",
   "compatibility_date": "2026-10-23",
   "preview_urls": false,
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "aresrpg.wiki", "custom_domain": true },
+    { "pattern": "www.aresrpg.wiki", "custom_domain": true }
+  ],
   "assets": { "directory": "../.dist", "not_found_handling": "404-page" }
 }
