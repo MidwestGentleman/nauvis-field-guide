@@ -38,6 +38,7 @@ node scripts/build-data.mjs --src ../aresrpg-src # a local clone
 | `assets/style.css` | Design tokens, light and dark themes, layout |
 | `pages/*.html` | Hand-written articles. `<div data-widget="…">` placeholders are filled with live data. |
 | `scripts/build-data.mjs` | Optional local cache builder |
+| `scripts/render-tournament-shots.mjs` | Tournament window pictures in `assets/scenes/`, from the game's own UI test page (needs a local clone) |
 | `scripts/deploy.mjs`, `deploy/` | Publish to Cloudflare |
 
 ## Deploy
