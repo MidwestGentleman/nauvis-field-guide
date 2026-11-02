@@ -172,6 +172,10 @@ export async function buildGameData(read, source) {
         category: i.category,
         level: i.level,
         ...(i.damages ? { damages: i.damages } : {}),
+        // Gear: each stat's [min, max] roll (only the stats it has). Pets keep theirs under `pet`.
+        ...(i.stats && i.category !== 'pet'
+          ? { stats: Object.fromEntries(Object.keys(i.stats.max).filter(k => i.stats.max[k] || i.stats.min[k]).map(k => [k, [i.stats.min[k], i.stats.max[k]]])) }
+          : {}),
         ...(i.consumable?.type === 'loot_box' ? { contents: i.consumable.rewards.map(r => ({ item_type: r.item_type, amount: r.amount })) } : {}),
         // Pets: what they eat and the stats they grow into (only the stats they have).
         ...(i.category === 'pet'

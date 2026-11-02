@@ -1105,11 +1105,36 @@ const renderItem = id => {
   return `<p class="crumbs"><a href="#/items">Item finder</a></p>
     <div class="art-hero">${pic('itemhd', [id], 'hero-art item-art', i.name)}<div><h1>${esc(i.name)}</h1>
     <p class="lede">${itemLede(id, i)}</p></div></div>
+    ${i.damages || i.stats ? gearHtml(i) : ''}
     <h2 id="get">How to get it</h2>${sourcesHtml(id)}
     ${gatherOf(id) || rareParent(id) ? guardianHtml(gatherOf(id) ?? rareParent(id)) : ''}
     ${i.pet ? petHtml(i) : ''}
     ${used.length ? `<h2 id="used">Used to craft</h2>${cellList(used.map(r => `${itemLink(r.output_type)} <small>${r.inputs[id]} needed, ${jobName(r.job)}</small>`), 'cols')}` : ''}
     <p>${official('items', id)}</p>`
+}
+
+// Gear stats: each one is rolled on its own, anywhere from min to max inclusive, when the item is
+// minted (item.move mint_from_plan, generate_u16_in_range); a negative value is a malus.
+const GEAR_STAT = {
+  vitality: ['Vitality', 'health_heart'], wisdom: ['Wisdom', 'stat_wisdom'], strength: ['Strength', 'stat_strength'],
+  intelligence: ['Intelligence', 'stat_intelligence'], chance: ['Chance', 'stat_chance'], agility: ['Agility', 'stat_agility'],
+  range: ['Range', 'stat_range'], movement: ['MP', 'movement_diamond'], action: ['AP', 'action_star'],
+  critical: ['Critical', 'stat_critical'], raw_damage: ['Damage', 'stat_raw_damage'],
+}
+const signed = n => (n > 0 ? `+${n}` : n < 0 ? `−${-n}` : '0')
+const statCell = k => {
+  const res = k.match(/^(\w+)_resistance$/)?.[1]
+  if (res) return `${el(res)} resistance`
+  const [name, icon] = GEAR_STAT[k] ?? [titleCase(k)]
+  return `${icon ? pic('ui', [icon], 'ico') : ''}${name}`
+}
+const gearHtml = i => {
+  const stats = Object.entries(i.stats ?? {})
+  const rolled = stats.some(([, [lo, hi]]) => lo !== hi)
+  return `<h2 id="stats">Stats</h2>
+    ${i.damages ? `<p>A weapon strike deals ${i.damages.map(d => `<b>${d.from}–${d.to}</b> ${el(d.element)}`).join(', ').replace(/, ([^,]*)$/, ' and $1')} damage, scaled like any hit (see <a href="#/combat#damage">the damage formula</a>).</p>` : ''}
+    ${stats.length ? `${table(['Stat', ['Min', 'num'], ['Max', 'num']], stats.map(([k, [lo, hi]]) => [statCell(k), [signed(lo), 'num'], [signed(hi), 'num']]))}
+    <p>${rolled ? 'Each stat is rolled on its own when the item is made, anywhere from min to max. Two copies of the same item can differ.' : 'These stats are fixed: every copy is the same.'}${stats.some(([, [lo]]) => lo < 0) ? ' A negative value lowers that stat while the item is worn.' : ''}</p>` : ''}`
 }
 
 // Pets grow from nothing to their full stats over 60 feeds, one per UTC day; each stat is
