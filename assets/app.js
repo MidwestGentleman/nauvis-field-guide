@@ -1021,7 +1021,7 @@ const renderMob = id => {
     ${s.some(x => x.cities?.length) ? `<div class="callout tip"><p><strong>City mob.</strong> ${s.some(x => x.cities?.length && !x.biomes?.length) ? `It spawns in the ${[...new Set(s.flatMap(x => x.cities ?? []))].map(cityName).join(', ')} city area and nowhere else in the open world.` : `Besides its biomes, it's one of the few mobs that spawn inside the ${[...new Set(s.flatMap(x => x.cities ?? []))].map(cityName).join(', ')} city area.`} See <a href="#/regions">regional spawn rules</a>.</p></div>` : ''}
     ${s.some(x => x.world === 'nauvis') ? '<figure class="spawn-map" id="spawn-map"></figure>' : ''}
     <h2 id="drops">Drops</h2>
-    ${m.loot.length ? table(['Item', ['Chance', 'num'], ['Qty', 'num']], [...m.loot].sort((a, b) => b.chance_bp - a.chance_bp).map(l => [itemLink(l.item_type), [pct(l.chance_bp), 'num'], [l.min_qty === l.max_qty ? l.min_qty : `${l.min_qty}–${l.max_qty}`, 'num']])) : '<p>No drops.</p>'}
+    ${m.loot.length ? table(['Item', ['Chance', 'num'], ['Qty', 'num']], [...m.loot].sort((a, b) => b.chance_bp - a.chance_bp).map(l => [itemLink(l.item_type), [pct(l.chance_bp), 'num'], [l.min_qty === l.max_qty ? l.min_qty : `${l.min_qty}–${l.max_qty}`, 'num']])) + '<p>Chances are for the middle of the mob\'s level range. <a href="#/fights#loot">Level and Chance change them.</a></p>' : '<p>No drops.</p>'}
     <h2 id="spells">Spells</h2>
     <div id="mob-spells">${mobSpells(m)}</div>
     <p>Resistances: positive numbers cut that element's damage (capped at 50%), negative numbers make it take extra.</p>
